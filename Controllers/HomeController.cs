@@ -6,11 +6,19 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TobiasV_Victor_Lab2.Models;
+using Microsoft.EntityFrameworkCore;
+using TobiasV_Victor_Lab2.Data;
+using TobiasV_Victor_Lab2.LibraryViewModels;
 
 namespace TobiasV_Victor_Lab2.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly LibraryContext context;
+        public HomeController (LibraryContext context)
+        {
+            _context = context;
+        }
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
